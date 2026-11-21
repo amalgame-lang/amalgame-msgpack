@@ -22,6 +22,7 @@ else echo "ERROR: amc runtime/ not found." >&2; exit 2; fi
 # since v0.7.5). The link line needs that archive AFTER the package's
 # own facade archive so ld resolves JsonValue's methods.
 if [ -f "$AMC_DIR/lib/libamalgame.a" ]; then LIBAMALGAME="$AMC_DIR/lib/libamalgame.a"
+elif [ -f "$AMC_DIR/../share/amalgame/lib/libamalgame.a" ]; then LIBAMALGAME="$AMC_DIR/../share/amalgame/lib/libamalgame.a"   # release archive layout (v0.8.1+)
 elif [ -n "${LIBAMALGAME:-}" ]; then :
 else echo "ERROR: lib/libamalgame.a not found alongside amc." >&2; exit 2; fi
 
